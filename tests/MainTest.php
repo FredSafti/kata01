@@ -12,4 +12,10 @@ class MainTest extends TestCase
         $app = new Main('SAFTI');
         $this->assertSame('SAFTI', $app->getDivergence());
     }
+
+    public function testListeBien()
+    {
+        $app = new Main('SAFTI');
+        $this->assertCount(3, $app->getListeBiens());
+    }
 }
