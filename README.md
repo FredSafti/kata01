@@ -6,6 +6,7 @@ Bienvenue sur ce premier exercice
 
 Votre mission, si vous l'acceptez, sera :
 
+- ne pas toucher au contenu du dossier "data"
 - rendre ce code testable
 - refactoriser le nécessaire, et y'a du nécessaire !
 - prendre en compte le nouveau besoin ci-dessous
