@@ -13,11 +13,12 @@ class Main
     /** @var BiensRepository */
     private $repository;
 
-    public function __construct(string $divergence)
+    public function __construct(string $divergence, string $source, string $path)
     {
         $this->divergence = $divergence;
+
         $factory = new RepositoryFactory();
-        $this->repository = $factory->createRepositoryFromDivergence($divergence);
+        $this->repository = $factory->createRepository($source, $path);
     }
 
     /** @return string */

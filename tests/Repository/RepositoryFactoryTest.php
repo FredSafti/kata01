@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\Tests\Repository;
 
-
-use App\Enum\Divergence;
+use App\Enum\Source;
 use App\Repository\APIRepository;
 use App\Repository\CSVRepository;
 use App\Repository\RepositoryFactory;
@@ -17,7 +15,7 @@ class RepositoryFactoryTest extends TestCase
         $factory = new RepositoryFactory();
         $this->assertInstanceOf(
             CSVRepository::class,
-            $factory->createRepositoryFromDivergence(Divergence::SAFTI_ES)
+            $factory->createRepository(Source::CSV, '')
         );
     }
 
@@ -26,11 +24,7 @@ class RepositoryFactoryTest extends TestCase
         $factory = new RepositoryFactory();
         $this->assertInstanceOf(
             APIRepository::class,
-            $factory->createRepositoryFromDivergence(Divergence::SAFTI)
-        );
-        $this->assertInstanceOf(
-            APIRepository::class,
-            $factory->createRepositoryFromDivergence(Divergence::MEGAGENCE)
+            $factory->createRepository(Source::API, '')
         );
     }
 }

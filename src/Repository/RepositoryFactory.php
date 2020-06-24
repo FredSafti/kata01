@@ -2,31 +2,24 @@
 
 namespace App\Repository;
 
-use App\Enum\Divergence;
+use App\Enum\Source;
 
 class RepositoryFactory
 {
     /**
-     * @param string $divergence
+     * @param string $source
+     * @param string $path
      * @return BiensRepository
      */
-    public function createRepositoryFromDivergence(string $divergence)
+    public function createRepository(string $source, string $path)
     {
-        switch($divergence) {
-            case Divergence::SAFTI:
-                return new APIRepository(
-                    'http://omega.dev.safti.local/Git/Frederic/kata01-api/biens.csv'
-                );
-
-            case Divergence::SAFTI_ES:
-                return new CSVRepository('data/biens-ES.csv');
-
-            case Divergence::MEGAGENCE:
-                return new APIRepository(
-                    'http://megasoft.dev.safti.local/Git/Frederic/kata01-api/megagence.csv'
-                );
+        switch($source) {
+            case Source::API:
+                return new APIRepository($path);
+            case Source::CSV:
+                return new CSVRepository($path);
         }
 
-        throw new \LogicException('Cannot find repository for ' . $divergence);
+        throw new \LogicException('Cannot find repository for ' . $source);
     }
 }
