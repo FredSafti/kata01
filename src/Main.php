@@ -2,10 +2,10 @@
 
 namespace App;
 
-class Main
+class Main extends Configurable
 {
     /** @var string */
-    private $divergence;
+    protected $divergence;
 
     public function __construct(string $divergence)
     {
@@ -21,7 +21,6 @@ class Main
     /** @return \Iterable */
     public function getListeBiens()
     {
-        $repository = new Repository();
-        return $repository->findAll();
+        return $this->findAll();
     }
 }
