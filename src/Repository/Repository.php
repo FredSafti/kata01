@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Repository;
+
+use App\Enum\Divergence;
 
 class Repository
 {
@@ -15,14 +17,14 @@ class Repository
     /** @return \Iterable */
     public function findAll()
     {
-        if ($this->divergence == 'SAFTi-ES') {
+        if ($this->divergence == Divergence::SAFTI_ES) {
             $this->setPath('data/biens-ES.csv');
         }
         
         $biens = fopen($this->path_biens, 'r');
         switch($this->divergence)
         {
-            case 'SAFTI':
+            case Divergence::SAFTI:
                 $result = array();
                 $this->headers = fgetcsv($biens, 0, ';');
                 while ($line = fgetcsv($biens, 0, ';'))
@@ -31,7 +33,7 @@ class Repository
                 }
                 return $result;
 
-            case 'SAFTi-ES':
+            case Divergence::SAFTI_ES:
                 $result = array();
                 while ($line = fgetcsv($biens, 0, ';'))
                 {
@@ -39,7 +41,7 @@ class Repository
                 }
                 return $result;
 
-            case "megAgence":
+            case Divergence::MEGAGENCE:
                 $content = file_get_contents('http://megasoft.dev.safti.local/Git/Frederic/kata01-api/megagence.csv');
                 $biens = explode("\n", $content);
                 $result = array();

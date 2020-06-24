@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Repository\Repository;
+
 class Main extends Repository
 {
     /** @var string */
