@@ -30,6 +30,6 @@ $> vendor/bin/phpunit
 Nouveau besoin
 --------------
 
-Pour la divergence **megAgence uniquement**, il faudrait que la liste des biens soit issue du webservice suivant, au lieu de la lecture dans le fichier texte local :
+Pour la divergence **SAFTI uniquement**, il faudrait que la liste des biens soit issue du webservice suivant, au lieu de la lecture dans le fichier texte local :
 
-http://megasoft.dev.safti.local/Git/Frederic/kata01-api/megagence.csv
+http://omega.dev.safti.local/Git/Frederic/kata01-api/biens.csv

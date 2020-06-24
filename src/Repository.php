@@ -40,11 +40,11 @@ class Repository
                 return $result;
 
             case "megAgence":
-                $content = file_get_contents('http://omega.dev.safti.local/Git/Frederic/kata01-api/biens.csv');
+                $content = file_get_contents('http://megasoft.dev.safti.local/Git/Frederic/kata01-api/megagence.csv');
                 $biens = explode("\n", $content);
                 $result = array();
                 foreach ($biens as $bien) {
-                    $result[] = explode(';', $bien);
+                    $result[] = explode(',', $bien);
                 }
                 return $result;
         }
