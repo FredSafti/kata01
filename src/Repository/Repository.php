@@ -7,7 +7,7 @@ use App\Enum\Divergence;
 class Repository
 {
     protected $path_biens = 'data/biens.csv';
-    private $headers = ['id', 'titre', 'prix', 'date'];
+    private $headers = array();
 
     public function setPath(string $path)
     {
@@ -25,16 +25,9 @@ class Repository
         switch($this->divergence)
         {
             case Divergence::SAFTI:
-                $result = array();
-                $this->headers = fgetcsv($biens, 0, ';');
-                while ($line = fgetcsv($biens, 0, ';'))
-                {
-                    $result[] = $this->transformLine($line);
-                }
-                return $result;
-
             case Divergence::SAFTI_ES:
                 $result = array();
+                $this->headers = fgetcsv($biens, 0, ';');
                 while ($line = fgetcsv($biens, 0, ';'))
                 {
                     $result[] = $this->transformLine($line);
