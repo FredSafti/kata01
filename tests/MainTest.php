@@ -17,6 +17,26 @@ class MainTest extends TestCase
     public function testListeBien()
     {
         $app = new Main(Divergence::SAFTI);
-        $this->assertCount(3, $app->getListeBiens());
+        $this->assertListeConforme($app->getListeBiens());
+
+        $app = new Main(Divergence::MEGAGENCE);
+        $this->assertListeConforme($app->getListeBiens());
+
+        $app = new Main(Divergence::SAFTI_ES);
+        $this->assertListeConforme($app->getListeBiens());
+    }
+
+    private function assertListeConforme(array $liste)
+    {
+        $this->assertGreaterThan(0, count($liste));
+        $this->assertConforme($liste[0]);
+    }
+
+    private function assertConforme(array $element)
+    {
+        $this->assertArrayHasKey('id', $element);
+        $this->assertArrayHasKey('titre', $element);
+        $this->assertArrayHasKey('prix', $element);
+        $this->assertArrayHasKey('date', $element);
     }
 }
