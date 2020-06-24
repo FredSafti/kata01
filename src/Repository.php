@@ -33,7 +33,7 @@ class Repository
 
             case 'SAFTi-ES':
                 $result = array();
-                while ($line = fgetcsv($biens))
+                while ($line = fgetcsv($biens, 0, ';'))
                 {
                     $result[] = $this->transformLine($line);
                 }
@@ -44,7 +44,7 @@ class Repository
                 $biens = explode("\n", $content);
                 $result = array();
                 foreach ($biens as $bien) {
-                    $result[] = $this->transformLine(explode(',', $bien));
+                    $result[] = $this->transformLine(explode(';', $bien));
                 }
                 return $result;
         }
