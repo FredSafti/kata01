@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Main extends Configurable
+class Main extends Repository
 {
     /** @var string */
     protected $divergence;
