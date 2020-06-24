@@ -7,7 +7,7 @@ Bienvenue sur ce premier exercice
 Votre mission, si vous l'acceptez, sera :
 
 - rendre ce code testable
-- refactoriser le nécessaire
+- refactoriser le nécessaire, et y'a du nécessaire !
 - prendre en compte le nouveau besoin ci-dessous
 - pousser le code finalisé sur une branche portant vos prénoms
 
@@ -32,5 +32,4 @@ Nouveau besoin
 
 Pour la divergence **megAgence uniquement**, il faudrait que la liste des biens soit issue du webservice suivant, au lieu de la lecture dans le fichier texte local :
 
-http://megasoft.dev.megagence.com/Git/Frederic/kata01-api/biens.csv
-
+http://megasoft.dev.safti.local/Git/Frederic/kata01-api/megagence.csv
