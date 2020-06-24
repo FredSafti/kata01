@@ -4,8 +4,8 @@ namespace App;
 
 class Repository
 {
-    /** @var string */
     protected $path_biens = 'data/biens.csv';
+    private $headers = ['id', 'titre', 'prix', 'date'];
 
     public function setPath(string $path)
     {
@@ -24,10 +24,10 @@ class Repository
         {
             case 'SAFTI':
                 $result = array();
-                $header = fgetcsv($biens, 0, ';');
+                $this->headers = fgetcsv($biens, 0, ';');
                 while ($line = fgetcsv($biens, 0, ';'))
                 {
-                    $result[] = $line;
+                    $result[] = $this->transformLine($line);
                 }
                 return $result;
 
@@ -35,7 +35,7 @@ class Repository
                 $result = array();
                 while ($line = fgetcsv($biens))
                 {
-                    $result[] = $line;
+                    $result[] = $this->transformLine($line);
                 }
                 return $result;
 
@@ -44,9 +44,17 @@ class Repository
                 $biens = explode("\n", $content);
                 $result = array();
                 foreach ($biens as $bien) {
-                    $result[] = explode(',', $bien);
+                    $result[] = $this->transformLine(explode(',', $bien));
                 }
                 return $result;
         }
+    }
+
+    private function transformLine(array $arr)
+    {
+        return array_combine(
+            array_slice($this->headers, 0, count($arr)),
+            array_slice($arr, 0, count($this->headers))
+        );
     }
 }
