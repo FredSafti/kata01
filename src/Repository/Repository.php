@@ -21,11 +21,11 @@ class Repository
             $this->setPath('data/biens-ES.csv');
         }
         
-        $biens = fopen($this->path_biens, 'r');
         switch($this->divergence)
         {
             case Divergence::SAFTI:
             case Divergence::SAFTI_ES:
+                $biens = fopen($this->path_biens, 'r');
                 $result = array();
                 $this->headers = fgetcsv($biens, 0, ';');
                 while ($line = fgetcsv($biens, 0, ';'))
