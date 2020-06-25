@@ -19,6 +19,7 @@ class Repository
     {
         $content = file_get_contents($this->getDataPath());
         $biens = explode("\n", $content);
+        $this->headers = explode(';', array_shift($biens));
         $result = array();
         foreach ($biens as $bien) {
             $result[] = $this->transformLine(explode(';', $bien));
