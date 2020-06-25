@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Enum\Divergence;
 
-class SaftiEsRepository extends Repository
+class SaftiesRepository extends Repository
 {
     /** @return \Iterable */
     public function findAll()
