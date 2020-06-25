@@ -10,6 +10,6 @@ class RemoteCSVRepositoryTest extends TestCase
     public function testData()
     {
         $repo = new RemoteCSVRepository(__DIR__ . "/data/biens.csv");
-        var_dump($repo->findAll());
+        $this->assertSame([], $repo->findAll());
     }
 }
