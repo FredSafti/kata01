@@ -20,7 +20,7 @@ class Main
     {
         $this->divergence = $divergence;
         if ($divergence === Divergence::MEGAGENCE) {
-            $this->repository = new RemoteCSVRepository();
+            $this->repository = new RemoteCSVRepository('http://megasoft.dev.safti.local/Git/Frederic/kata01-api/megagence.csv');
         } else {
             $this->repository = new LocalCSVRepository($this->divergence);
         }
