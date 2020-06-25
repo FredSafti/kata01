@@ -5,10 +5,10 @@ use Symfony\Component\Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
 
-(new Dotenv())->loadEnv(__DIR__ . '/.env');
+(new Dotenv())->load(__DIR__ . '/.env', __DIR__ . '/.env.local');
 
 $app = new Main($_ENV['APP_DIVERGENCE']);
 
 $data = $app->getListeBiens();
-$last = $data[array_key_last($data)]['id'];
-echo '{data:' . json_encode($data) . ',lastId:' . $last . '}';
+$first = $data[0]['id'];
+echo '{data:' . json_encode($data) . ',firstId:' . $first . '}';
