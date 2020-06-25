@@ -4,12 +4,23 @@ namespace App\Repository;
 
 use App\Enum\Divergence;
 
-class Repository
+class Repository implements RepositoryInterface
 {
     protected $path_biens = 'data/biens.csv';
-    private $headers = array();
+    private   $headers = array();
+    private   $divergence;
 
-    public function setPath($path)
+    /**
+     * Repository constructor.
+     * @param $divergence
+     */
+    public function __construct($divergence)
+    {
+        $this->divergence = $divergence;
+    }
+
+
+    private function setPath($path)
     {
         $this->path_biens = $path;
     }
@@ -43,6 +54,7 @@ class Repository
                 }
                 return $result;
         }
+        return null;
     }
 
     private function transformLine($arr)
