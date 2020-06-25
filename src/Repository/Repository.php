@@ -9,7 +9,7 @@ class Repository
     protected $path_biens = 'data/biens.csv';
     private $headers = array();
 
-    public function setPath(string $path)
+    public function setPath($path)
     {
         $this->path_biens = $path;
     }
@@ -45,7 +45,7 @@ class Repository
         }
     }
 
-    private function transformLine(array $arr)
+    private function transformLine($arr)
     {
         return array_combine(
             array_slice($this->headers, 0, count($arr)),
