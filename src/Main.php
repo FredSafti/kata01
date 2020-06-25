@@ -3,15 +3,25 @@
 namespace App;
 
 use App\Repository\Repository;
+use App\Factory\RepositoryFactory;
 
-class Main extends Repository
+class Main
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $divergence;
 
-    public function __construct(string $divergence)
+    /**
+     * @var Repository
+     */
+    private $repository;
+
+    public function __construct($divergence)
     {
         $this->divergence = $divergence;
+        $repositoryFactory = new RepositoryFactory();
+        $this->repository = $repositoryFactory->getRepo($divergence);
     }
 
     /** @return string */
@@ -23,6 +33,6 @@ class Main extends Repository
     /** @return \Iterable */
     public function getListeBiens()
     {
-        return $this->findAll();
+        return $this->repository->findAll();
     }
 }

@@ -5,7 +5,7 @@ use Symfony\Component\Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
 
-(new Dotenv())->loadEnv(__DIR__ . '/.env');
+(new Dotenv())->load(__DIR__ . '/.env');
 
 $app = new Main($_ENV['APP_DIVERGENCE']);
 
