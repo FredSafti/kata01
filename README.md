@@ -18,16 +18,19 @@ Installation
 ------------
 
 ```bash
-$> git clone git@github.com:FredSafti/kata01
-$> cd kata01
-$> composer install
+git clone git@github.com:FredSafti/kata01
+cd kata01
+cp .env .env.local
+composer install
 ```
+
+Indiquer l'entreprise dans le fichier .env.local
 
 Lancer les tests
 ---------------- 
 
 ```bash
-$> vendor/bin/phpunit
+vendor/bin/phpunit
 ```
 
 Nouveau besoin
