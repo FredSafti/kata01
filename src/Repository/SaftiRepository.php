@@ -8,6 +8,6 @@ class SaftiRepository extends Repository
 
     public function getDataPath()
     {
-        return __DIR__.'/data/biens.csv';
+        return __DIR__.'\\..\\..\\data\\biens.csv';
     }
 }

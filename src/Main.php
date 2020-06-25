@@ -4,28 +4,19 @@ namespace App;
 
 use App\Repository\Repository;
 
-class Main extends Repository
+class Main
 {
-    /** @var string */
-    protected $divergence;
 
     private $repository;
 
-    public function __construct($divergence,$repository)
+    public function __construct($repository)
     {
-        $this->divergence = $divergence;
         $this->repository = $repository;
-    }
-
-    /** @return string */
-    public function getDivergence()
-    {
-        return $this->divergence;
     }
 
     /** @return \Iterable */
     public function getListeBiens()
     {
-        return $this->findAll();
+        return $this->repository->findAll();
     }
 }

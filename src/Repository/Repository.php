@@ -4,18 +4,17 @@ namespace App\Repository;
 
 use App\Enum\Divergence;
 
-class Repository
+abstract class Repository
 {
 
     private $headers = array();
-
 
 
     abstract public function getDataPath();
 
     /** @return \Iterable */
 
-    protected function findAll()
+    public function findAll()
     {
         $content = file_get_contents($this->getDataPath());
         $biens = explode("\n", $content);

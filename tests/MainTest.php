@@ -5,19 +5,19 @@ namespace App\Tests;
 use App\Enum\Divergence;
 use App\Main;
 use App\Repository\Repository;
+use App\Repository\SaftiRepository;
 use PHPUnit\Framework\TestCase;
 
 class MainTest extends TestCase
 {
     public function testDivergence()
     {
-        $app = new Main(Divergence::SAFTI,new Repository());
-        $this->assertSame(Divergence::SAFTI, $app->getDivergence());
+        $app = new Main(new SaftiRepository());
     }
 
     public function testListeBien()
     {
-        $app = new Main(Divergence::SAFTI, new Repository());
+        $app = new Main(new SaftiRepository());
         $this->assertCount(3, $app->getListeBiens());
     }
 
