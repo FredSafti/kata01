@@ -20,7 +20,7 @@ class Main
     {
         $this->divergence = $divergence;
         if ($divergence === Divergence::MEGAGENCE) {
-            $this->repository = new RemoteCSVRepository($this->divergence);
+            $this->repository = new RemoteCSVRepository();
         } else {
             $this->repository = new LocalCSVRepository($this->divergence);
         }

@@ -4,24 +4,7 @@ namespace App\Repository;
 
 class RemoteCSVRepository implements RepositoryInterface
 {
-    protected $path_biens = 'data/biens.csv';
-    private   $headers    = [];
-    private   $divergence;
-
-    /**
-     * Repository constructor.
-     * @param $divergence
-     */
-    public function __construct($divergence)
-    {
-        $this->divergence = $divergence;
-    }
-
-
-    private function setPath($path)
-    {
-        $this->path_biens = $path;
-    }
+    private $headers = [];
 
     /** @return \Iterable */
     public function findAll()
