@@ -2,21 +2,28 @@
 
 namespace App;
 
-use App\Repository\Repository;
+use App\Enum\Divergence;
+use App\Repository\RemoteCSVRepository;
+use App\Repository\LocalCSVRepository;
+use App\Repository\RepositoryInterface;
 
 class Main
 {
     /** @var string */
     protected $divergence;
     /**
-     * @var Repository
+     * @var RepositoryInterface
      */
     private $repository;
 
     public function __construct($divergence)
     {
         $this->divergence = $divergence;
-        $this->repository = new Repository($this->divergence);
+        if ($divergence === Divergence::MEGAGENCE) {
+            $this->repository = new RemoteCSVRepository($this->divergence);
+        } else {
+            $this->repository = new LocalCSVRepository($this->divergence);
+        }
     }
 
     /** @return string */
@@ -25,7 +32,7 @@ class Main
         return $this->divergence;
     }
 
-    /** @return \Iterable */
+    /** @return Iterable */
     public function getListeBiens()
     {
         return $this->repository->findAll();

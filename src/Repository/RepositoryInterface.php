@@ -4,6 +4,6 @@ namespace App\Repository;
 
 interface RepositoryInterface
 {
-    /** @return \Iterable */
+    /** @return Iterable */
     public function findAll();
 }
