@@ -9,9 +9,12 @@ class Main extends Repository
     /** @var string */
     protected $divergence;
 
-    public function __construct($divergence)
+    private $repository;
+
+    public function __construct($divergence,$repository)
     {
         $this->divergence = $divergence;
+        $this->repository = $repository;
     }
 
     /** @return string */

@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a53861023063ba36c8f36aaf5cf195ec",
+    "content-hash": "81a3f172d880e83557f916cd16caa1d3",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -1455,6 +1455,6 @@
     "platform": [],
     "platform-dev": [],
     "platform-overrides": {
-        "php": "5.6.40"
+        "php": "5.6.9"
     }
 }

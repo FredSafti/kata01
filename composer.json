@@ -3,7 +3,7 @@
     "type": "project",
     "config": {
         "platform": {
-            "php": "5.6.40"
+            "php": "5.6.9"
         }
     },
     "require": {
